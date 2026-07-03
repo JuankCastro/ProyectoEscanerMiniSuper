@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>ScanIt</title>
 </head>
-<body style=" background-color: aqua;">
-    <header><h1><strong>Escaner</strong> Movil Productos</h1></header>
+<body>
+    <div class="scan">
+        <div class="scan_cam">
+            <div class="opencam">Escanear</div>
+        </div>
+        <div class="brand">
+            <input class="in" type="text" name="" id="" required value="Yummies">
+        </div>
+    </div>
+    <div class="datas">
+        <input class="in" type="text" name="" id="" value="Ranchita Perrona">
+        <label>Categoria</label>
+        <select name="" id="" class="Combobox">
+            <option value="1">Congelados</option>
+        </select>
+
+        <label>Costo de compra</label>
+        <div class="CostPrice selecter">
+            <input  class="costin" type="number" name="" id="">
+            <button class="BtnAdd">R</button>
+            <button class="BtnAdd">+25</button>
+            <button class="BtnAdd">+100</button>
+        </div>
+
+        <label>Precio Estimado</label>
+        <div class="CostPrice selecter">
+            <input  class="costin" type="number" name="" id="">
+            <button class="BtnAdd">R</button>
+            <button class="BtnAdd">+25</button>
+            <button class="BtnAdd">+100</button>
+        </div>
+        <button class="Btnregister">Registar</button>
+    </div>
 </body>
 </html>
