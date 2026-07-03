@@ -10,6 +10,7 @@
     <title>ScanIt</title>
 </head>
 <body>
+    <button class="Btnregister">Escanear Articulo</button>
     <input class="in" type="text" name="" id="" required value="Yummies">
     <div class="datas">
         <input class="in" type="text" name="" id="" value="Ranchita Perrona">
@@ -35,5 +36,22 @@
         </div>
         <button class="Btnregister">Registar</button>
     </div>
+    <script>
+    document.querySelectorAll('.CostPrice .BtnAdd').forEach(boton => {
+        boton.addEventListener('click', () => {
+            const contenedor = boton.parentElement;
+            const input = contenedor.querySelector('.costin');
+            let valorActual = parseFloat(input.value) || 0;
+            const accion = boton.textContent.trim();
+            if (accion === 'R') {
+                input.value = Math.round(valorActual / 25) * 25;
+            } else if (accion === '+25') {
+                input.value = valorActual + 25;
+            } else if (accion === '+100') {
+                input.value = valorActual + 100;
+            }
+        });
+    });
+</script>
 </body>
 </html>
