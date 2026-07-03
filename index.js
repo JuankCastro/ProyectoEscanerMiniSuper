@@ -17,8 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
         // Configuración del escáner
         // Agregamos formatos típicos de códigos de barra (EAN_13, EAN_8, CODE_128, etc.)
         html5QrcodeScanner = new Html5QrcodeScanner("reader", { 
-            fps: 10, 
-            qrbox: { width: 300, height: 100 }, // Caja de enfoque alargada para códigos de barra
+            fps: 15, 
+            qrbox: { width: 300, height: 100 },
+            experimentalFeatures: {
+                useBarCodeDetectorIfSupported: true 
+            }, 
+            
+            // Caja de enfoque alargada para códigos de barra
             formatsToSupport: [ 
                 Html5QrcodeSupportedFormats.EAN_13, 
                 Html5QrcodeSupportedFormats.EAN_8, 
