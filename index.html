@@ -1,57 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>ScanIt - Registro de Artículo</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>ScanIt</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="Btnregister">Escanear Articulo</button>
-    <input class="in" type="text" name="" id="" required value="Yummies">
-    <div class="datas">
-        <input class="in" type="text" name="" id="" value="Ranchita Perrona">
-        <label>Categoria</label>
-        <select name="" id="" class="Combobox">
-            <option value="1">Congelados</option>
-        </select>
 
-        <label>Costo de compra</label>
-        <div class="CostPrice selecter">
-            <input  class="costin" type="number" name="" id="">
-            <button class="BtnAdd">R</button>
-            <button class="BtnAdd">+25</button>
-            <button class="BtnAdd">+100</button>
-        </div>
+    <main class="container">
+        <!-- Acción principal superior -->
+        <header class="header-actions" style="flex-direction: column; align-items: center; gap: 15px;">
+            <button type="button" id="btn-scan" class="Btnregister">Escanear Artículo</button>
+            <div id="reader" style="width: 100%; max-width: 400px; display: none; border-radius: 12px; overflow: hidden;"></div>
+        </header>
 
-        <label>Precio Estimado</label>
-        <div class="CostPrice selecter">
-            <input  class="costin" type="number" name="" id="">
-            <button class="BtnAdd">R</button>
-            <button class="BtnAdd">+25</button>
-            <button class="BtnAdd">+100</button>
-        </div>
-        <button class="Btnregister">Registar</button>
-    </div>
-    <script>
-    document.querySelectorAll('.CostPrice .BtnAdd').forEach(boton => {
-        boton.addEventListener('click', () => {
-            const contenedor = boton.parentElement;
-            const input = contenedor.querySelector('.costin');
-            let valorActual = parseFloat(input.value) || 0;
-            const accion = boton.textContent.trim();
-            if (accion === 'R') {
-                input.value = Math.round(valorActual / 25) * 25;
-            } else if (accion === '+25') {
-                input.value = valorActual + 25;
-            } else if (accion === '+100') {
-                input.value = valorActual + 100;
-            }
-        });
-    });
-</script>
+        <!-- Formulario principal -->
+        <form class="datas">
+            
+            <!-- Grupo: Nombre del Artículo -->
+            <div class="form-group">
+                <label for="input-articulo">Nombre del Artículo</label>
+                <input class="in" type="text" id="input-articulo" name="articulo" required value="Ranchita Perrona">
+            </div>
+
+            <!-- Grupo: Categoría -->
+            <div class="form-group">
+                <label for="select-categoria">Categoría</label>
+                <select name="categoria" id="select-categoria" class="Combobox">
+                    <option value="1">Congelados</option>
+                </select>
+            </div>
+
+            <!-- Grupo: Costo de Compra -->
+            <div class="form-group">
+                <label for="input-costo">Costo de Compra</label>
+                <div class="CostPrice selector">
+                    <input class="costin" type="number" id="input-costo" name="costo_compra" min="0" step="any">
+                    <button type="button" class="BtnAdd">R</button>
+                    <button type="button" class="BtnAdd">+25</button>
+                    <button type="button" class="BtnAdd">+100</button>
+                </div>
+            </div>
+
+            <!-- Grupo: Precio Estimado -->
+            <div class="form-group">
+                <label for="input-precio">Precio Estimado</label>
+                <div class="CostPrice selector">
+                    <input class="costin" type="number" id="input-precio" name="precio_estimado" min="0" step="any">
+                    <button type="button" class="BtnAdd">R</button>
+                    <button type="button" class="BtnAdd">+25</button>
+                    <button type="button" class="BtnAdd">+100</button>
+                </div>
+            </div>
+
+            <!-- Botón de Envío -->
+            <button type="submit" class="Btnregister btn-submit">Registrar</button>
+        </form>
+    </main>
+    <script src="index.js"></script>
 </body>
 </html>

@@ -1,114 +1,157 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Crucial para que el padding no rompa los anchos */
 }
 
-body{
-    height: 100dvh;
-    width: 100dvw;
+/* 2. Base del Cuerpo */
+body {
+    min-height: 100dvh;
+    width: 100vw;
     display: flex;
-    flex-direction: column;
-    place-items: center;
-    background-color: #fff;
-    padding: 10px;
-    box-sizing: border-box;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    background-color: #f4f4f9; /* Un tono gris claro de fondo para que resalte el formulario */
+    padding: 20px;
 }
 
-.scan{
-    height: 50%;
+/* 3. Contenedor Principal (Main) */
+.container {
     width: 100%;
     max-width: 450px;
-    max-height: 450px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Sombra suave para darle profundidad */
+}
+
+/* Header superior (Botón Escanear) */
+.header-actions {
     display: flex;
-    place-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+/* 4. Formulario y Estructura Interna */
+.datas {
+    display: flex;
     flex-direction: column;
-    border-radius: 20px;
-    background-color: rgb(85, 79, 95);
+    gap: 20px; /* Separación uniforme entre bloques */
 }
 
-.scan_cam{
-    height: 400px;
-    width: 100%;
+/* Bloques individuales que envuelven Label + Input */
+.form-group {
     display: flex;
-    justify-content: center;
-    font-family: "Raleway", sans-serif;
-    font-size: 27px;
-    place-items: center;
+    flex-direction: column;
+    gap: 8px; /* Separación pequeña entre el Label y su Input */
 }
 
-.opencam{
-    width: 200px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    place-items: center;
-    border-radius: 20px;
-    background-color: #fff;
-}
-
-.brand{
-    width: 80%;
-    height: 50px;
-    display: flex;
+/* 5. Tipografías y Textos */
+label {
     font-family: "Oswald", sans-serif;
-    font-size: 30px;
-    justify-content: center;
-    place-items: end;
-    border-radius: 20px 20px 0 0;
-    background-color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #554f5f;
+    letter-spacing: 0.5px;
 }
 
-.datas{
+/* Input de texto principal (Nombre del artículo) */
+.in {
     width: 100%;
-    height: 50%;
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    gap: 15px;
+    height: 50px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0 15px;
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-.BtnAdd{
+.in:focus {
+    border-color: rgb(85, 79, 95); /* Cambia de color al hacer clic */
+}
+
+/* Select / Combobox */
+.Combobox {
+    width: 100%;
+    height: 50px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0 15px;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    background-color: #fff;
+    outline: none;
+}
+
+/* 6. Controladores de Precio (Inputs numéricos + Botones rápidos) */
+.selector {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Input numérico */
+.costin {
+    flex: 1; /* Hace que el input ocupe todo el espacio disponible */
+    height: 50px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0 15px;
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    outline: none;
+}
+
+.costin:focus {
+    border-color: rgb(85, 79, 95);
+}
+
+/* Botones circulares rápidos (R, +25, +100) */
+.BtnAdd {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 0;
-    background-color: #f0f8ff;
-}
-
-.costin{
-    height: 50px;
-    width: 50%;
-    border-radius: 20px;
     border: none;
-    background-color: #f0f8ff;
-}
-
-.selecter{
-    width: fit-content;
-}
-
-.Combobox{
-    width: 70%;
-    height: 50px;
-}
-
-label{
+    background-color: rgb(85, 79, 95);
+    color: #ffffff;
     font-family: "Oswald", sans-serif;
-    font-size: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
-.Btnregister{
-    width: 200px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    background-color: #f0f8ff;
+.BtnAdd:hover {
+    background-color: rgb(110, 103, 122);
 }
 
-.in{
+.BtnAdd:active {
+    transform: scale(0.95); /* Efecto de hundido al presionarlo */
+}
+
+/* 7. Botones Principales (Escanear y Registrar) */
+.Btnregister {
+    width: 100%; /* Ahora ocupan el ancho del contenedor para verse más limpios */
+    height: 50px;
+    border-radius: 12px;
     border: none;
+    background-color: rgb(85, 79, 95);
+    color: white;
     font-family: "Oswald", sans-serif;
-    font-size: 30px;
-    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.Btnregister:hover {
+    background-color: rgb(65, 60, 73);
+}
+
+/* Margen superior extra solo para el botón de enviar final */
+.btn-submit {
+    margin-top: 10px;
 }
